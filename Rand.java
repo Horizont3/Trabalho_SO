@@ -1,64 +1,106 @@
-package so;
-
+import java.util.Scanner;
 import java.util.Random;
 
 /*-------CRIADOR DE VALORES PARA A LITA-------*/
 
 public class Rand {
 
+    private final Scanner input = new Scanner(System.in);
     private final Random gerador = new Random();
-    private final int quantidade;    
-    private final int min_Value;
-    private final int max_Value;
     private final Vet_req Lista;
-    public int Cont_Ident;
-        
-    
-    
-    Rand(Vet_req lista,int tam, int min, int max, int id){
-        
-        this.quantidade = tam;
-        this.min_Value = min;
-        this.max_Value = max;
+    public int quantidadeRequisicao;
+    public int valorMinimo;
+    public int valorMaximo;
+    public int tamanhoHeap;
+    public int cont_Id = 1;
+
+
+    Rand(Vet_req lista){
+
         this.Lista = lista;
-        this.Cont_Ident = id;
-        
-    }
-            
-    public void Random(){
-                 
-        for(int i=0;i<quantidade;i++){
-            
-            Lista.inserir(cria_No());
-                        
-        }                 
-        
-    }
-    
-    private No_req cria_No(){
-        
-        No_req novo = new No_req();
-        int x;
-        
-        x = sem_repeticao();     
-            
-            novo.setIdentificador(x);
-            novo.setTam(gerador.nextInt((max_Value-min_Value)+1)+min_Value);  
-        
-        
-        return novo;        
-    } 
-    
-    public int sem_repeticao(){
-        
-        int i = Cont_Ident;
-        Cont_Ident++;
-        return i;
-        
+
     }
 
-    public int getCont_Ident() {
-        return Cont_Ident;
-    }  
-   
+    public int buscaDados(){
+
+        if(cont_Id == 1){
+
+            System.out.println("Digite a quantidade de requisições: ");
+            quantidadeRequisicao = input.nextInt();
+            System.out.println("Digite o tamanho da heap: ");
+            tamanhoHeap = input.nextInt();
+            System.out.println("Digite o valor mínimo: ");
+            valorMinimo = input.nextInt();
+            System.out.println("Digite o valor máxmio: ");
+            valorMaximo = input.nextInt();
+
+            Random();
+            return tamanhoHeap;
+
+        }
+        else{
+
+            System.out.println("Digite a quantidade de requisições: ");
+            quantidadeRequisicao = input.nextInt();
+
+            Random();
+            return tamanhoHeap;
+
+        }
+
+    }
+
+    public void Random(){
+
+        for(int i = 0; i< quantidadeRequisicao; i++){
+
+            Lista.inserir(cria_No());
+
+        }
+
+    }
+
+    private No_req cria_No(){
+
+        No_req novo = new No_req();
+        int x;
+
+        x = sem_repeticao();
+
+        novo.setIdentificador(x);
+        novo.setTam(gerador.nextInt((valorMaximo - valorMinimo)+1)+ valorMinimo);
+
+
+        return novo;
+    }
+
+    public int sem_repeticao(){
+
+        int i = cont_Id;
+        cont_Id++;
+        return i;
+
+    }
+
+    //-------------GETTERS------------------------
+
+    public int getCont_Id() {
+        return cont_Id;
+    }
+
+    public int getQuantidadeRequisicao() {
+        return quantidadeRequisicao;
+    }
+
+    public int getValorMinimo() {
+        return valorMinimo;
+    }
+
+    public int getValorMaximo() {
+        return valorMaximo;
+    }
+
+    public int getTamanhoHeap() {
+        return tamanhoHeap;
+    }
 }
