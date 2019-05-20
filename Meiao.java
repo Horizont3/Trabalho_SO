@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Meiao {
 
-    Vet_req Lista = new Vet_req();
-    Rand aux = new Rand(Lista);
+    public Vet_req Lista = new Vet_req();
+    public Rand auxRand = new Rand(Lista);
+    public Heap auxHeap = new Heap(Lista);
     private final Scanner input = new Scanner(System.in);
     int menu = 123;
 
@@ -37,7 +38,7 @@ public class Meiao {
 
                 case 1: //inicializador
 
-                    aux.buscaDados();
+                    auxRand.buscaDados();
 
                 break;
 

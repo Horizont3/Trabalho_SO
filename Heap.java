@@ -1,12 +1,10 @@
 public class Heap {
 
-    private final No_req vet[];
-    private No_req auxiliar;
+    private Vet_req Lista;
 
+    Heap(Vet_req lista){
 
-    Heap(int tam){
-
-        vet = new No_req[tam];
+        this.Lista = lista;
 
     }
 

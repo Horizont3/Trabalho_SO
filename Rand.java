@@ -21,7 +21,7 @@ public class Rand {
 
     }
 
-    public int buscaDados(){
+    public void buscaDados(){
 
         if(cont_Id == 1){
 
@@ -35,7 +35,6 @@ public class Rand {
             valorMaximo = input.nextInt();
 
             Random();
-            return tamanhoHeap;
 
         }
         else{
@@ -44,7 +43,6 @@ public class Rand {
             quantidadeRequisicao = input.nextInt();
 
             Random();
-            return tamanhoHeap;
 
         }
 
