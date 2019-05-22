@@ -12,7 +12,7 @@ public class Rand {
     public int valorMinimo;
     public int valorMaximo;
     public int tamanhoHeap;
-    public int cont_Id = 1;
+    public int cont_Id = 0;
 
 
     Rand(Vet_req lista){
@@ -23,7 +23,7 @@ public class Rand {
 
     public void buscaDados(){
 
-        if(cont_Id == 1){
+        if(cont_Id == 0){
 
             System.out.println("Digite a quantidade de requisições: ");
             quantidadeRequisicao = input.nextInt();
@@ -74,8 +74,8 @@ public class Rand {
 
     public int sem_repeticao(){
 
-        int i = cont_Id;
         cont_Id++;
+        int i = cont_Id;
         return i;
 
     }

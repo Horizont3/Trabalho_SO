@@ -105,4 +105,26 @@ public class Vet_req {
 
     //----------------------------------------------
 
+    //------------MANDA NO POR NO-------------------
+
+    public No_req retornaNos(int qual){
+
+        No_req ultimo = inicio;
+
+        do{
+
+            if(qual==0){
+
+                //return ultimo;
+                break;
+
+            }
+            qual--;
+            ultimo = ultimo.proximo;
+
+        }while(ultimo != inicio);
+
+        return ultimo;
+    }
+
 }
