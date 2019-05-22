@@ -107,23 +107,24 @@ public class Vet_req {
 
     //------------MANDA NO POR NO-------------------
 
-    public No_req retornaNos(int qual){ //funçao de deve retornar o no requisitado pelo for que esta na heap
+    public No_req retornaNos(int qual){
 
         No_req ultimo = inicio;
 
         do{
 
-            qual--;
-
             if(qual==0){
 
-
+                //return ultimo;
+                break;
 
             }
+            qual--;
             ultimo = ultimo.proximo;
 
         }while(ultimo != inicio);
 
+        return ultimo;
     }
 
 }
