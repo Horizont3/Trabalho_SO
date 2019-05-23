@@ -42,7 +42,7 @@ public class Meiao {
                 case 1: //inicializador
 
                     auxRand.buscaDados();
-                    if(flag==0){auxHeap.startvetNo();flag++;} //gambiarra do krl
+                    if(flag==0){auxHeap.startVet();flag++;} //gambiarra do krl
 
                 break;
 

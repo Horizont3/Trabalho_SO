@@ -2,6 +2,7 @@ public class Heap {
 
     private Vet_req Lista;
     private No_req vetNo[];
+    private int vetPaginacao[];
     private Rand auxRand;
 
 
@@ -12,10 +13,11 @@ public class Heap {
 
     }
 
-    public void startvetNo(){
+    public void startVet(){
 
         vetNo = new No_req[auxRand.getTamanhoHeap()];
-
+        vetPaginacao = new int[(auxRand.getTamanhoHeap()/2)];
+        
     }
 
     public void preecheVetNo(){
