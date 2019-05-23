@@ -21,38 +21,6 @@ public class Heap {
     public void preecheVetNo(){
         No_req auxNo;
 
-        /*if(auxRand.getCont_Id()>auxRand.getTamanhoHeap()){
-
-            System.out.println("NAO TEM ESPAÇO!");
-
-        }
-        else if(auxRand.getCont_Id()==auxRand.getTamanhoHeap()){
-
-            for(int i=0;i<vetNo.length;i++){
-
-                auxNo = Lista.retornaNos(i);
-                vetNo[i] = auxNo;
-
-            }
-            System.out.println("Vetor Heap Preenchido!");
-        }
-        else{
-
-            int i;
-            for(i=0;i<auxRand.getCont_Id();i++){
-
-                auxNo = Lista.retornaNos(i);
-                vetNo[i] = auxNo;
-
-            }
-            for(;i<vetNo.length;i++){
-
-                vetNo[i] = null;
-
-            }
-            System.out.println("Vetor Heap Preenchido!");
-        }*/
-
         if(calcPercent(auxRand.getCont_Id(),auxRand.getTamanhoHeap()) > 50){
 
             System.out.println("NAO TEM ESPAÇO!"); //TEM QUE SOCAR UM DESALOCADOR E UM BAGULHO QUE SALVE ESSES ESPAÇOS DESALOCADOS
