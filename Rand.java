@@ -12,6 +12,7 @@ public class Rand {
     public int valorMinimo;
     public int valorMaximo;
     public int tamanhoHeap;
+    public int limiar;
     public int cont_Id = 0;
 
 
@@ -29,6 +30,8 @@ public class Rand {
             quantidadeRequisicao = input.nextInt();
             System.out.println("Digite o tamanho da heap: ");
             tamanhoHeap = input.nextInt();
+            System.out.println("Digite o limiar: ");
+            limiar = input.nextInt();
             System.out.println("Digite o valor mínimo: ");
             valorMinimo = input.nextInt();
             System.out.println("Digite o valor máxmio: ");
@@ -39,7 +42,7 @@ public class Rand {
         }
         else{
 
-            System.out.println("Digite a quantidade de requisições: ");
+            System.out.println("Digite a quantidade de requisições a serem adicionadas: ");
             quantidadeRequisicao = input.nextInt();
 
             Random();
@@ -101,4 +104,6 @@ public class Rand {
     public int getTamanhoHeap() {
         return tamanhoHeap;
     }
+
+    public int getLimiar() { return limiar; }
 }

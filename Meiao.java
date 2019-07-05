@@ -54,7 +54,7 @@ public class Meiao {
 
                 case 3:
 
-                    auxHeap.preecheVetNo();
+                    auxHeap.alocadorHeap();
 
                 break;
 
