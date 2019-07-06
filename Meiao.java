@@ -16,7 +16,7 @@ public class Meiao {
 
     public void menu(){
 
-        do{
+        /*do{
 
             System.out.println("------------------------");
 
@@ -70,10 +70,29 @@ public class Meiao {
 
             }
 
-        }while(menu!=0);
+        }while(menu!=0); */
 
 
     }
+
+    public void vai_Caralho(){
+
+        long tempoInicial = System.currentTimeMillis();
+        auxRand.Random();
+        auxHeap.startVet();
+        //Lista.imprimir();
+        System.out.println("------------------------");
+        auxHeap.alocadorHeap();
+        //auxHeap.imprime();
+        System.out.println("------------------------");
+        auxHeap.desalocador_MESMO();
+        //auxHeap.imprime();
+        long tempoFinal = System.currentTimeMillis();
+        System.out.println("Demorou: "+(tempoFinal-tempoInicial)+"ms");
+        System.out.println("O Desalocador foi utilizado: "+auxHeap.getContadorDesaloca()+" vezes");
+
+    }
+
 
     public Vet_req getLista() { return Lista; }
 

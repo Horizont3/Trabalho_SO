@@ -6,7 +6,8 @@ public class SO {
 
         Meiao inicializador = new Meiao();
 
-        inicializador.menu();
+        //inicializador.menu();
+        inicializador.vai_Caralho();
 
     }
 

@@ -6,8 +6,9 @@ public class Heap {
     private No_req vetHeap[];
     private Lacunas vetLacunas[];
     private Rand auxRand;
-    private int tamAtual, limiar, aqui;
+    private int tamAtual, limiar;
     private int flag;
+    private int contadorDesaloca;
 
 
     Heap(Vet_req lista, Rand auxrand){
@@ -17,7 +18,7 @@ public class Heap {
         this.limiar = 0;
         this.tamAtual = 0;
         this.flag = 0;
-        this.aqui = 0;
+        this.contadorDesaloca = 0;
 
     }
 
@@ -99,8 +100,9 @@ public class Heap {
 
     public void desalocadorHeap(){
 
-        int i = 0, aux = auxRand.getValorMaximo();
-        int cont=0, cont2=0, cont3=0;
+        int i = 0;
+        int cont2=0;
+        contadorDesaloca++;
 
           /* do{
 
@@ -156,6 +158,18 @@ public class Heap {
 
     }
 
+    public void desalocador_MESMO(){
+        int i=0;
+        contadorDesaloca++;
+
+        for(;i<tamAtual;i++){
+
+            vetHeap[i] = null;
+
+        }
+
+    }
+
     public void atualizaHeap(){
 
         int i=0;
@@ -197,4 +211,7 @@ public class Heap {
 
     }
 
+    public int getContadorDesaloca(){ return contadorDesaloca; }
+
 }
+

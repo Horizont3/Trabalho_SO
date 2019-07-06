@@ -19,10 +19,15 @@ public class Rand {
     Rand(Vet_req lista){
 
         this.Lista = lista;
+        this.quantidadeRequisicao = 10000;
+        this.tamanhoHeap = 200;
+        this.limiar = 50;
+        this.valorMinimo = 2;
+        this.valorMaximo = 4;
 
     }
 
-    public void buscaDados(){
+    /*public void buscaDados(){
 
         if(cont_Id == 0){
 
@@ -49,7 +54,7 @@ public class Rand {
 
         }
 
-    }
+    }*/
 
     public void Random(){
 
