@@ -4,9 +4,9 @@ public class Heap {
 
     private Vet_req Lista;
     private No_req vetHeap[];
-    private int vetLacunas[];
+    private Lacunas vetLacunas[];
     private Rand auxRand;
-    private int tamAtual, limiar;
+    private int tamAtual, limiar, aqui;
     private int flag;
 
 
@@ -17,13 +17,14 @@ public class Heap {
         this.limiar = 0;
         this.tamAtual = 0;
         this.flag = 0;
+        this.aqui = 0;
 
     }
 
     public void startVet(){
 
-        vetHeap = new No_req[(auxRand.getTamanhoHeap()/auxRand.getValorMaximo())];
-        vetLacunas = new int[(auxRand.getTamanhoHeap()/2)];
+        vetHeap = new No_req[auxRand.getTamanhoHeap()];
+        vetLacunas = new Lacunas[(vetHeap.length/2)];
         this.limiar = auxRand.getLimiar();
 
     }
@@ -34,7 +35,7 @@ public class Heap {
         int j=0;
         int k=0;
 
-        if(calcTam(auxRand.getCont_Id(),auxRand.getTamanhoHeap()) > 50){
+        /*if(calcTam(auxRand.getCont_Id(),auxRand.getTamanhoHeap()) > 50){
 
             System.out.println("NAO TEM ESPAÇO!"); //TEM QUE SOCAR UM DESALOCADOR E UM BAGULHO QUE SALVE ESSES ESPAÇOS DESALOCADOS
                                                    //DESALOCAR QUEM? MAIS ANTIGO? POR TAMANHO?
@@ -65,6 +66,31 @@ public class Heap {
             }
 
             System.out.println("Vetor Heap Preenchido!");
+        }*/
+
+        for(;i<auxRand.getCont_Id();i++){
+
+            auxNo = Lista.retornaNos(i);
+            j = auxNo.tam;
+
+            if(calcTam(tamAtual,vetHeap.length) <= limiar){
+
+                do{
+
+                    vetHeap[tamAtual] = auxNo;
+                    tamAtual++;
+                    j--;
+
+                }while(j != 0);
+
+            }
+
+            else{
+
+                desalocadorHeap();
+
+            }
+
         }
 
 
@@ -73,10 +99,10 @@ public class Heap {
 
     public void desalocadorHeap(){
 
-        int i = flag, aux = auxRand.getValorMaximo();
+        int i = 0, aux = auxRand.getValorMaximo();
         int cont=0, cont2=0, cont3=0;
 
-           do{
+          /* do{
 
                for(;flag<vetHeap.length;flag++){
                    cont++;
@@ -107,14 +133,45 @@ public class Heap {
                }
 
 
-           }while(aux != 0);
+           }while(aux != 0);*/
+
+
+
+              do{
+
+                  cont2 = vetHeap[i].tam;
+
+                  do{
+                      vetHeap[0] = null;
+                      tamAtual--;
+                      cont2--;
+                      i++;
+                      atualizaHeap();
+
+                  }while(cont2 != 0);
+
+              }while(calcTam(tamAtual,vetHeap.length) >= 30);
+
+
 
     }
 
+    public void atualizaHeap(){
 
-    public int calcTam(int requis, int tamHeap){
+        int i=0;
+        No_req aux;
 
-        return ((requis*100)/tamHeap);
+        for(;i<=tamAtual+1;i++){
+
+            vetHeap[i] = vetHeap[i+1];
+
+        }
+
+    }
+
+    public int calcTam(int tam_atual, int tamHeap){
+
+        return ((tam_atual*100)/tamHeap);
 
     }
 
@@ -132,7 +189,7 @@ public class Heap {
             }
             else{
 
-                System.out.println("{" + "identificador = "+ aux +", tamanho = null" + '}');
+                System.out.println("{" + "identificador = null, tamanho = null" + '}');
 
             }
 
